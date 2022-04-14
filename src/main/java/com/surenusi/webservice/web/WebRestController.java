@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.surenusi.dto.posts.PostsSaveRequestDto;
 import com.surenusi.webservice.domain.posts.PostsRepository;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class WebRestController {
 	
-	private PostsRepository postsRepository;
+	private final PostsRepository postsRepository;
 	
 	@GetMapping("/hello")
 	public String hello() {
