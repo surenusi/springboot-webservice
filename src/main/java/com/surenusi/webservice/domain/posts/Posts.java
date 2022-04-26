@@ -3,6 +3,7 @@ package com.surenusi.webservice.domain.posts;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.surenusi.webservice.domain.BaseTimeEntity;
@@ -25,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class Posts extends BaseTimeEntity {
 	
 	@Id //테이블의 PK필드를 나타냄
-	@GeneratedValue //PK의 생성규칙을 나타냄. 기본값은 AUTO로, MySQL의 auto_increament와 같이 자동증가하는 정수형 값이 됨
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //PK의 생성규칙을 나타냄. 기본값은 AUTO로, MySQL의 auto_increament와 같이 자동증가하는 정수형 값이 됨
 	private long id;
 	
 	/**
