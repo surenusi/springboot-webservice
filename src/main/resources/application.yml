@@ -1,12 +1,24 @@
 spring:
-  h2:
-    console:
-      enabled: true
-    
-  jpa:
+  profiles:
+    active: local
+
+
+#Local 환경
+---
+spring:
+jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      data-locations: classpath:data-h2.sql
+  config:
+    activate:
+      on-profile: local
