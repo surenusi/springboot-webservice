@@ -1,8 +1,12 @@
 package com.surenusi.webservice.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.surenusi.dto.posts.PostsMainResponseDto;
 import com.surenusi.dto.posts.PostsSaveRequestDto;
 import com.surenusi.webservice.domain.posts.PostsRepository;
 
@@ -27,6 +31,13 @@ public class PostsService {
 		 * 즉, Controller와 Service의 역할을 분리하기 위함
 		 */
 		return postsRepository.save(dto.toEntity()).getId();
+	}
+	
+	@Transactional(readOnly = true)
+	public List<PostsMainResponseDto> findAllDesc() {
+		return postsRepository.findByOrderByIdDesc()
+				.map(PostsMainResponseDto::new)
+				.collect(Collectors.toList());
 	}
 
 }

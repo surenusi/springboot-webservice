@@ -9,6 +9,29 @@
 </head>
 <body>
     <h1>Spring Boot Web Service</h1>
+    
+    <!--글 목록-->
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+                <tr>
+                    <th>게시글번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>최종수정일</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#each posts}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{title}}</td>
+                    <td>{{author}}</td>
+                    <td>{{modifiedDate}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
 
 	<!--글 등록-->
     <div class="col-md-12">
